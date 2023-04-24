@@ -30,4 +30,8 @@ public class TaskController {
         System.out.println(res);
         return res;
     }
+    @GetMapping("/search")
+    public List<Task> search(@RequestParam("query") String keyword){
+        return taskService.search(keyword);
+    }
 }

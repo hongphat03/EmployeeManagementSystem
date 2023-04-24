@@ -30,4 +30,9 @@ public class TaskService implements com.example.CRUD_SpringBoot.EmployeeManageme
         System.out.println(res);
         return res;
     }
+
+    @Override
+    public List<Task> search(String keywork) {
+        return taskRepository.search(keywork);
+    }
 }

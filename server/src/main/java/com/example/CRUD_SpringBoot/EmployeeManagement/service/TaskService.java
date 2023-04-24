@@ -8,4 +8,5 @@ public interface TaskService {
     Task saveTask(Task task);
     List<Task> getListTask();
     List<Task> getTaskId(long id);
+    List<Task> search(String keywork);
 }
