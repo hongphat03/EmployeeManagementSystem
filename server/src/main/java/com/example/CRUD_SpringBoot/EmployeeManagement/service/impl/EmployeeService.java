@@ -20,6 +20,11 @@ public class EmployeeService implements com.example.CRUD_SpringBoot.EmployeeMana
     }
 
     @Override
+    public Employee getEmployeeByEmailAndPass(String email, String password) {
+        return employeeRepository.findByEmailAndPassword(email,password);
+    }
+
+    @Override
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }

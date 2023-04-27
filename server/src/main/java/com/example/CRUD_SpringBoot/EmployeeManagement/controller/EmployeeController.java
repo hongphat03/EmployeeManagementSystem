@@ -16,6 +16,12 @@ import java.util.List;
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
+    @PostMapping("/loginAsEmployee")
+    public ResponseEntity<Employee> getEmployeeByEmailAndPass(@RequestBody Employee employee){
+        String email = employee.getEmail();
+        String password = employee.getPassword();
+        return new ResponseEntity<>(employeeService.getEmployeeByEmailAndPass(email,password),HttpStatus.OK);
+    }
     @PostMapping()
     public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
         // use ResponseEntity to send detail response such as status code, header
@@ -29,6 +35,7 @@ public class EmployeeController {
     public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") long employeeId){
         return new ResponseEntity<>(employeeService.getEmployeeById(employeeId),HttpStatus.OK);
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable long id,@RequestBody Employee employee){
         return new ResponseEntity<>(employeeService.updateEmployee(id,employee),HttpStatus.OK);
