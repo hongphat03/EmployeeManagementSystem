@@ -13,3 +13,7 @@ export const searchTask = (query) => {
 export const getListTasksById = (id) => {
     return axios.get(`${URL}/${id}`).then(res => res).catch(err => console.log(err))
 }
+
+export const getAllManager = () => {
+    return axios.get(`${URL}/manager`).then(res => res).catch(err => console.log(err))
+}

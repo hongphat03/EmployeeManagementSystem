@@ -42,7 +42,7 @@ const ListTask = () => {
                         <th>Employee Id</th>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Deadline</th>
+                        <th>Deadline2</th>
                         <th>Manager Name</th>
                     </tr>
                 </thead>

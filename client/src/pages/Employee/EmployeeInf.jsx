@@ -1,55 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Container, Form, Table } from 'react-bootstrap';
-import { getListTasksById } from '../../api/Task';
+import { getAllManager, getListTasksById } from '../../api/Task';
 import { getEmployeeById } from '../../api/Employee';
 import HeaderComponent from '../../components/Header';
 
 const EmployeeInf = () => {
-    const state = useLocation().state
     const [tasks, setTasks] = useState([])
     const [data, setData] = useState([])
+  
     useEffect(() => {
-        getEmployeeById(state.id).then(res => setData(res)).catch(err => console.log(err))
-    },[])
-    useEffect(() => {
-        getListTasksById(state.id).then(res => setTasks(res.data)).catch(err => console.log(err))
+        getAllManager().then(res => setTasks(res.data)).catch(err => console.log(err))
     },[])
     const row = tasks.map((task,index) => (
         <tr key={index}>
-            <td>{task.name}</td>
-            <td>{task.description}</td>
-            <td>{task.deadline}</td>
-            <td>{task.managerName}</td>
+            <th>{task.system}</th>
+            <th>{task.productline}</th>
+            <th>{task.model}</th>
+            <th>{task.type}</th>
+            <th>{task.vapacity}</th>
+            <th>{task.ratedcoolingcap}</th>
+            <th>{task.dimension}</th>
+            <th>{task.runingcurrent}</th>
+            <th>{task.ratedpowerinput}</th>
+            <th>{task.powersupply}</th>
+            <th>{task.airflow}</th>
+            <th>{task.extstaticpressure}</th>
+            <th>{task.ratedCOP}</th>
+            <th>{task.refriger}</th>
+            <th>{task.noise}</th>
+            <th>{task.weight}</th>
+            <th>{task.liquidpipe}</th>
+            <th>{task.gaspipe}</th>
         </tr>
     )) 
     return (
         <>
             <HeaderComponent />
         <Container>
-            <h1 className='text-center'>Personal Information</h1>
-            <Form>
-                <Form.Group>
-                    <Form.Label>FirstName</Form.Label>
-                    <Form.Control type='text'  value={data.firstName} disabled/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>LastName</Form.Label>
-                    <Form.Control type='text'  value={data.lastName} disabled/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type='email'  value={data.email} disabled/>
-                </Form.Group>
-            </Form>
+           
             <h1 className='text-center'>Task</h1>
             <Table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Deadline</th>
-                        <th>Manager Name</th>
+                        <th>System</th>
+                        <th>Product Line</th>
+                        <th>Model</th>
+                        <th>Type</th>
+                        <th>Capacity</th>
+                        <th>Rated Cooling Cap.at 19 CWB (kW)</th>
+                        <th>Dimension (HxWxD) (mm)</th>
+                        <th>Running Current (A)</th>
+                        <th>Rated Power Input (kW)</th>
+                        <th>Power Supply (V/Ph/Hz)</th>
+                        <th>Air Flow (m3/h)</th>
+                        <th>Ext.Static Pressure (Pa)</th>
+                        <th>Rated COP</th>
+                        <th>Refrigerant</th>
+                        <th>Noise dB(A)</th>
+                        <th>Weight (kg)</th>
+                        <th>Liquid Pipe</th>
+                        <th>Gas Pipe</th>
                     </tr>
                 </thead>
                 <tbody>
