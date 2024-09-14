@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class ManagerService implements com.example.CRUD_SpringBoot.EmployeeManagement.service.ManagerService {
@@ -14,5 +16,10 @@ public class ManagerService implements com.example.CRUD_SpringBoot.EmployeeManag
     @Override
     public Manager getManagerByEmailAndPassword(String email, String password) {
         return managerRepository.findByEmailAndPassword(email,password);
+    }
+
+    @Override
+    public List<Manager> getAllManagers() {
+        return managerRepository.findAll();
     }
 }
