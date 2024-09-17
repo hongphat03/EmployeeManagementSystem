@@ -50,14 +50,21 @@ const EmployeeInf = () => {
     )) 
     return (
         <>
-        <HeaderComponent />
-        <Container>
-            <h1 className='text-center'>Task</h1>
-            <Form>
+        <HeaderComponent/>
+        <Container style={{
+                    alignItems: 'center',
+                    marginLeft: 100,
+                    }}>
+            <h1 style={{
+                    marginLeft: 300,
+                    }} className='text-center'>Task</h1>
+            <Form style={{
+                    marginLeft: 200,
+                    }}>
                 <Form.Control type='text' onChange={handleChange}></Form.Control>
             </Form>
-            <Table>
-                <thead>
+            <Table >
+                <thead >
                     <tr>
                         <th>System</th>
                         <th>Product Line</th>
