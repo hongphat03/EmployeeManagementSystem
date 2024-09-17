@@ -1,6 +1,7 @@
 package com.example.CRUD_SpringBoot.EmployeeManagement.service.impl;
 
 import com.example.CRUD_SpringBoot.EmployeeManagement.model.Manager;
+import com.example.CRUD_SpringBoot.EmployeeManagement.model.Task;
 import com.example.CRUD_SpringBoot.EmployeeManagement.repository.ManagerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,10 @@ public class ManagerService implements com.example.CRUD_SpringBoot.EmployeeManag
     @Override
     public List<Manager> getAllManagers() {
         return managerRepository.findAll();
+    }
+
+    @Override
+    public List<Manager> search(String keywork) {
+        return managerRepository.search(keywork);
     }
 }

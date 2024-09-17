@@ -1,17 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Container, Form, Table } from 'react-bootstrap';
-import { getAllManager, getListTasksById } from '../../api/Task';
 import { getEmployeeById } from '../../api/Employee';
 import HeaderComponent from '../../components/Header';
+import { searchTask } from '../../api/Manager';
+import { getAllManager } from '../../api/Task';
 
 const EmployeeInf = () => {
     const [tasks, setTasks] = useState([])
     const [data, setData] = useState([])
-  
+    const [query, setQuery] = useState("");
+
+    const getData = async () => {
+        return await searchTask(query).then(res => setTasks(res.data)).catch(err => console.log(err))
+    }
+    useEffect(() => {
+        getData();
+    },[query])
+
+    const handleChange = (e) => {
+        setQuery(e.target.value)
+    }
+
     useEffect(() => {
         getAllManager().then(res => setTasks(res.data)).catch(err => console.log(err))
     },[])
+
     const row = tasks.map((task,index) => (
         <tr key={index}>
             <th>{task.system}</th>
@@ -36,10 +50,12 @@ const EmployeeInf = () => {
     )) 
     return (
         <>
-            <HeaderComponent />
+        <HeaderComponent />
         <Container>
-           
             <h1 className='text-center'>Task</h1>
+            <Form>
+                <Form.Control type='text' onChange={handleChange}></Form.Control>
+            </Form>
             <Table>
                 <thead>
                     <tr>

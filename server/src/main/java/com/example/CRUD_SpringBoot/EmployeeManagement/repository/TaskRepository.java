@@ -12,5 +12,5 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
             + "OR t.description  LIKE CONCAT('%',?1, '%')"
             + "OR t.deadline  LIKE CONCAT('%',?1, '%')"
             + "OR t.employeeId  LIKE CONCAT('%',?1, '%')")
-    List<Task> search(String keywork);
+    List<Task> search(String keyword);
 }
