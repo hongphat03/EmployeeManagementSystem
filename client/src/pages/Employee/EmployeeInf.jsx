@@ -5,6 +5,7 @@ import { getEmployeeById } from '../../api/Employee';
 import HeaderComponent from '../../components/Header';
 import { searchTask } from '../../api/Manager';
 import { getAllManager } from '../../api/Task';
+import CreateTask from '../CreateTask';
 
 var constTask
 
@@ -204,7 +205,8 @@ const EmployeeInf = () => {
                 </div>
             </div>
 
-            <Button onClick={handleClearFilter}>Clear Filter</Button>
+            <Button onClick={handleClearFilter} style={{ marginRight: 2 }}>Clear Filter</Button>
+            <CreateTask/> 
         </Container>
         <Container style={{ alignItems: 'center', marginLeft: -65 }}>
         <Table>

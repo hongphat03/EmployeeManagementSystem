@@ -8,3 +8,7 @@ export const loginAsManager = async (props) => {
 export const searchTask = (query, key) => {
     return axios.get(`${URL}/search?query=${query}&key=${key}`).then(res => res).catch(err => console.log(err))
 }
+
+export const insertTask = (task) => {
+    return axios.post(`${URL}/insert`, task).then(res => res).catch(err => console.log(err))
+}
