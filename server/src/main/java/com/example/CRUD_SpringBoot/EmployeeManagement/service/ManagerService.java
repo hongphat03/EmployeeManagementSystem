@@ -8,4 +8,5 @@ public interface ManagerService {
     public Manager getManagerByEmailAndPassword(String email, String password);
     public List<Manager> getAllManagers();
     public List<Manager> search(String query);
+    public Manager insert(Manager manager);
 }

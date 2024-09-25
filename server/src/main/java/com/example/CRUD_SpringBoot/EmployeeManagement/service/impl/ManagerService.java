@@ -28,4 +28,10 @@ public class ManagerService implements com.example.CRUD_SpringBoot.EmployeeManag
     public List<Manager> search(String query) {
         return managerRepository.search(query);
     }
+
+    @Override
+    public Manager insert(Manager manager) {
+        return managerRepository.save(manager);
+
+    }
 }

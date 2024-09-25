@@ -23,6 +23,10 @@ public class ManagerController {
         return new ResponseEntity<>(managerService.getManagerByEmailAndPassword(email,password), HttpStatus.OK);
     }
 
+    @PostMapping("/insert")
+    public ResponseEntity<Manager> insert(@RequestBody Manager manager){
+        return new ResponseEntity<>(managerService.insert(manager), HttpStatus.OK);
+    }
     @GetMapping("/search")
     public List<Manager> search(@RequestParam("query") String query){
         return managerService.search(query);
