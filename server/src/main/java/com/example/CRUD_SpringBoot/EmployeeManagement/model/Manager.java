@@ -28,8 +28,9 @@ public class Manager {
     private String model;
     @Column(name = "type")
     private String type;
+
     @Column(name = "capacity")
-    private long capacity;
+    private float capacity;
 
     @Column(name = "rated_cooling_cap")
     private String ratedcoolingcap;
@@ -68,4 +69,7 @@ public class Manager {
 
     @Column(name = "gas_pipe2")
     private String gaspipe;
+
+    @Column(name = "accessory")
+    private String accessory;
 }

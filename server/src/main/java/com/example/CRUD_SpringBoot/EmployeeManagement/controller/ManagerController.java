@@ -24,7 +24,7 @@ public class ManagerController {
     }
 
     @GetMapping("/search")
-    public List<Manager> search(@RequestParam("query") String keyword){
-        return managerService.search(keyword);
+    public List<Manager> search(@RequestParam("query") String query){
+        return managerService.search(query);
     }
 }

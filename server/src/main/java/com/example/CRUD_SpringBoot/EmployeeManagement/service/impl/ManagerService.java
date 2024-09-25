@@ -25,7 +25,7 @@ public class ManagerService implements com.example.CRUD_SpringBoot.EmployeeManag
     }
 
     @Override
-    public List<Manager> search(String keywork) {
-        return managerRepository.search(keywork);
+    public List<Manager> search(String query) {
+        return managerRepository.search(query);
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 public interface ManagerService {
     public Manager getManagerByEmailAndPassword(String email, String password);
     public List<Manager> getAllManagers();
-    public List<Manager> search(String keywork);
+    public List<Manager> search(String query);
 }
